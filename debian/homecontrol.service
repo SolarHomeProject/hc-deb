@@ -1,0 +1,12 @@
+[Unit]
+Description=HomeControl - Panel
+After=network-online.target
+Wants=network-online.target systemd-time-wait-sync.service
+
+[Service]
+Environment="XDG_RUNTIME_DIR=/root"
+WorkingDirectory=/opt/HomeControl
+ExecStart=/opt/HomeControl/HomeControl.py
+
+[Install]
+WantedBy=multi-user.target
